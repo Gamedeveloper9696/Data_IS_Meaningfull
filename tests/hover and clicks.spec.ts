@@ -14,7 +14,7 @@ import {test,expect,Browser,Page, chromium} from '@playwright/test';
     const ourProgram = page.getByText('Visa ').first();
     //await ourProgram.waitFor({ state: 'visible' });
     await ourProgram.click();
-    await page.waitForTimeout(5000);
+  
     
    });
 
