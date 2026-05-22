@@ -1,9 +1,28 @@
-import {test,expect} from '@playwright/test';
+import {test,expect, request, APIRequest} from '@playwright/test';
 
-const token='reqres_a0404be7b6ae444b95591ed787637f82'
-const url='https://reqres.in/api/users';
 
-test(postreques, async({request})==>{
+const url='https://6a0edf3f1736097c360abd9d.mockapi.io/person';
 
-    
-})
+test('postreques',async({request})=>{
+
+    const Response= await request.post(url,{data:{
+        "name":"poornima",
+        "job":"qa"
+}});
+        
+console.log(await Response.json());
+
+expect(Response.status()).toBe(201);
+expect(await Response.json()).toMatchObject({
+    "name":"poornima",
+    "job":"qa"
+});
+
+
+
+    });
+        
+        
+  
+
+
